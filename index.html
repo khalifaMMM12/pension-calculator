@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>pension Calculator</title>
+</head>
+<body>
+    <div class="navbar navbar-expand-lg nav">
+        <h3 class="navbar-logo">Pension Calculator
+            <img src="ppl-logo.jpeg" alt="" width="55" height="55">
+        </h3>
+    </div>
+<div class="container-fluid pb-4">
+    <div class="row-md">
+        <div class="col-md-5">
+            <div class="card mt-4 ml-3">
+                <div class="card-header bg-primary">
+                    <h3>Retirement Sum</h3>    
+                </div>
+                <div class="card-body">
+                    <form>
+
+                        <div class="form-group row">
+                            <label for="">Current Age</label>
+                            <input type="number" class="form-control age-input ml-3" id="">
+                        </div>
+                        <div class="form-group row">
+                            <label for="">Retirement Age</label>
+                            <input type="number" class="form-control age-input ml-3" id="">
+                            <small class="form-text form-muted">Retirement Age should not be less than Current Age</small>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="">How long do you expect to work?</label>
+                                    <input type="number" class="form-control age-input ml-3" id="">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">years</span>
+                                </div>
+                        </div>
+
+                        
+                        <div class="form-group row">
+                            <label for="">Current RSA balance</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₦</span>
+                            </div>
+                                <small class="form-text form-muted">leave as zero if you are a prospective client</small>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="">Monthly Contribution</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₦</span>
+                            </div>
+                        </div>
+                            
+                        <div class="form-group row">
+                            <label for="">Estimated Annual Contribution Growth Rate</label>
+                                <input type="number" class="form-control age-input2 ml-3" id="">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="">Expected Rate of Return</label>
+                                <input type="number" class="form-control age-input ml-3" id="">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <h2>Retirement Sum =</h2>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+</body>
+</html>

@@ -2,9 +2,9 @@ const calculateButton = document.querySelector('#calculateBtn');
 
 function calculateRetirementSum(e) {
   e.preventDefault();
-  
-  const currentAge = Number(document.querySelector('#currentAge').value);
-  const retirementAge = Number(document.querySelector('#retirementAge').value);
+  //The currentAge and retirementAge is optional. Unless you want to automate the n.
+  //const currentAge = Number(document.querySelector('#currentAge').value);
+  //const retirementAge = Number(document.querySelector('#retirementAge').value);
   /*const n = Number(retirementAge - currentAge);
   You can use the above code of const n to get value of n without inputing anything on the n textfield.
   */

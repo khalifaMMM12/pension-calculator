@@ -22,5 +22,4 @@ function calculateRetirementSum(e) {
 
 calculateButton.addEventListener('click', calculateRetirementSum);
 
-
 //basically the current age and retirement age are not in the formula it's just there for the sake of karin bayyani.

@@ -17,7 +17,7 @@ function calculateRetirementSum(e) {
   const FV = c * ((Math.pow(1 + r / 12, n * 12) - 1) / (r / 12)) * (1 + g) ** n + PV * (1 + r) ** n;
 
   const retirementSumOutput = document.querySelector('#retirementSum');
-  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toFixed(2);
+  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString();
 }
 
 calculateButton.addEventListener('click', calculateRetirementSum);

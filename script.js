@@ -1,13 +1,8 @@
-const calculateButton = document.querySelector('#calculateBtn');
+// RETIREMENT SUM CALCULATOR
+const calculateButton = document.querySelector('#RS_calculateBtn');
 
 function calculateRetirementSum(e) {
   e.preventDefault();
-  //The currentAge and retirementAge is optional. Unless you want to automate the n.
-  //const currentAge = Number(document.querySelector('#currentAge').value);
-  //const retirementAge = Number(document.querySelector('#retirementAge').value);
-  /*const n = Number(retirementAge - currentAge);
-  You can use the above code of const n to get value of n without inputing anything on the n textfield.
-  */
   const n = Number(document.querySelector('#n').value);
   const PV = Number(document.querySelector('#PV').value);
   const c = Number(document.querySelector('#c').value);
@@ -22,4 +17,25 @@ function calculateRetirementSum(e) {
 
 calculateButton.addEventListener('click', calculateRetirementSum);
 
-//basically the current age and retirement age are not in the formula it's just there for the sake of karin bayyani.
+
+// CAPITAL RECOVERY CALCULATOR
+const CR_calculateBtn = document.querySelector('#CR_calculateBtn');
+
+function calculateCapitalRecovery(e) {
+  e.preventDefault();
+  const pw = Number(document.querySelector('#pw').value);
+  const l = Number(document.querySelector('#l').value);
+  const n12 = Number(document.querySelector('#n12').value)*12;
+  // const n = Number(document.querySelector('#n').value);
+  const pv = Number(document.querySelector('#pv').value);
+  const r = Number(document.querySelector('#r').value);
+
+  const C = (pw * (Math.pow(1 + r / 12, 21 * 12) - 1))-(pv * (r / 12) * (1 + r / 12) ** n12) + (l * r / 12) / ((1 + r / 12) ** n12 - 1); 
+
+  const CR_OutPut = document.querySelector('#CapitalRecovery');
+  CR_OutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
+}
+
+calculateButton.addEventListener('click', calculateCapitalRecovery);
+
+

@@ -12,30 +12,30 @@ function calculateRetirementSum(e) {
   const FV = c * ((Math.pow(1 + r / 12, n * 12) - 1) / (r / 12)) * (1 + g) ** n + PV * (1 + r) ** n;
 
   const retirementSumOutput = document.querySelector('#retirementSum');
-  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString();
+  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV;
 }
 
 calculateButton.addEventListener('click', calculateRetirementSum);
 
 
 // CAPITAL RECOVERY CALCULATOR
-const CR_calculateBtn = document.querySelector('#CR_calculateBtn');
+const calculateBtn = document.querySelector('#CR_calculateBtn');
 
 function calculateCapitalRecovery(e) {
   e.preventDefault();
   const pw = Number(document.querySelector('#pw').value);
-  const l = Number(document.querySelector('#l').value);
-  const n12 = Number(document.querySelector('#n12').value)*12;
+  const l = Number(document.querySelector('#L').value);
+  const n12 = Number(document.querySelector('#n12').value) * 12;
   // const n = Number(document.querySelector('#n').value);
   const pv = Number(document.querySelector('#pv').value);
   const r = Number(document.querySelector('#r').value);
 
-  const C = (pw * (Math.pow(1 + r / 12, 21 * 12) - 1))-(pv * (r / 12) * (1 + r / 12) ** n12) + (l * r / 12) / ((1 + r / 12) ** n12 - 1); 
+  const C = pw * (Math.pow(1 + r / 12, 21 * 12) - 1)-(pv * (r / 12) * (1 + r / 12) ** n12) + (l * r / 12) / ((1 + r / 12) ** n12 - 1); 
 
-  const CR_OutPut = document.querySelector('#CapitalRecovery');
-  CR_OutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
+  const CROutPut = document.querySelector('#CapitalRecovery');
+  CROutPut.textContent = 'Your Capital Recovery is = ₦' + C;
 }
 
-calculateButton.addEventListener('click', calculateCapitalRecovery);
+calculateBtn.addEventListener('click', calculateCapitalRecovery);
 
 

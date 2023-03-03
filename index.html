@@ -108,6 +108,82 @@
                     <!-- form ends -->
                 </div>
             </div>
+            <!-- RETIREMENTSUM ENDS -->
+        </div>
+    </div>
+    
+
+        <!-- CAPITAL RECOVERY STARTS -->
+
+        <div class="col-md-6">
+            <div class="card mt-4 ml-3">
+                <div class="card-header bg-primary">
+                    <h3>Capital Recovery</h3>
+                    <p>This calculator will help you decide how much you should contribute monthly to earn future income. Please complete the upper table first. </p>
+                </div>
+
+                <div class="card-body">
+                    <!-- FORM BEGINS -->
+                    <form>
+                        <div class="form-group row pb-2">
+                            <label for="">How Much Do You Want To Collect Monthly</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="pw">
+                            <small class="form-text form-muted">Recommend at least 50% of projected salary</small>
+                        </div>
+                        <div class="form-group row">
+                            <label for="">Lump Sum at Retirement</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="L">
+                            <small class="form-text form-muted pl-3">limit to 20% of RSA balance</small>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="">How long do you expect to work?</label>
+                            <input type="number" class="form-control age-input ml-3" id="no">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">years</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="">Months to access</label>
+                            <input type="number" class="form-control age-input ml-3" id="n12">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">NO. of months</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="">Current RSA balance</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="pv" id="currentRSA">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₦</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="">Expected Rate of Return</label>
+                            <input type="number" class="form-control age-input ml-3" id="ro">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                        
+                        <!-- CALCULATE BUTTON -->
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary" id="CR_calculateBtn">Calculate</button>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="form-group p-4">
+                                <h2 id="CapitalRecovery"></h2>
+                            </div>
+                        </div>
+                        <!-- CALCULATE BUTTON ENDS-->
+                    </form>
+                    <!-- FORM ENDS -->
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
@@ -115,6 +191,6 @@
 <canvas id="mychart"></canvas>
 
  <script src="script.js"></script>
- 
+   
 </body>
 </html>

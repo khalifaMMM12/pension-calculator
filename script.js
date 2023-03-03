@@ -41,5 +41,6 @@ calculateBtn.addEventListener('click', calculateCapitalRecovery);
 
 //Just figure out the formula and make it right the code problem is Id's you can't use the same id for two boxes
 //I've changed the r id. It'll always take the first Id value which is 0 and compute. That's the reason for the NaN.
+//Is like I scatter the codes when pushing them. just incase the problem is Id sai ka duba html codes if I also scatter it
 
 

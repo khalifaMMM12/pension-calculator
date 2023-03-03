@@ -12,7 +12,7 @@ function calculateRetirementSum(e) {
   const FV = c * ((Math.pow(1 + r / 12, n * 12) - 1) / (r / 12)) * (1 + g) ** n + PV * (1 + r) ** n;
 
   const retirementSumOutput = document.querySelector('#retirementSum');
-  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString;
+  retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString();
 }
 
 calculateButton.addEventListener('click', calculateRetirementSum);
@@ -25,22 +25,19 @@ function calculateCapitalRecovery(e) {
   e.preventDefault();
   const pw = Number(document.querySelector('#pw').value);
   const l = Number(document.querySelector('#L').value);
-  const n12 = Number(document.querySelector('#n12').value);
-  //const n = Number(document.querySelector('#no').value);
+  const n = Number(document.querySelector('#c_n').value) * 12;
   const pv = Number(document.querySelector('#pv').value);
-  const r = Number(document.querySelector('#ro').value) / 100;
+  const r = Number(document.querySelector('#c_r').value) / 100;
 
-  let C = (pw * ((1 + r/12)**(n*12) - 1) / (r/12)) - (pv * (1 + r/12)**(n12)) + (l * ((1 + r/12)**(n*12) - 1)) / (r/12 * (1 + r/12)**(n*12))
+  const C = (pv * (r / 12) * ((1 + (r / 12)) ** n))
+  // pw * (Math.pow((1 + (r / 12)), (21 * 12)) - 1) - 
+   
+  // + ((l * (r / 12)) / (((1 + (r / 12)) ** n) - 1)); 
 
   const CROutPut = document.querySelector('#CapitalRecovery');
   CROutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
- ;
 }
 
 calculateBtn.addEventListener('click', calculateCapitalRecovery);
-
-//Just figure out the formula and make it right the code problem is Id's you can't use the same id for two boxes
-//I've changed the r id. It'll always take the first Id value which is for retirement sum and compute which is zero if not inputted. That's the reason for the NaN.
-//Is like I scatter the codes when pushing them. just incase the problem is Id sai ka duba html codes if I also scatter it
 
 

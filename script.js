@@ -34,7 +34,7 @@ function calculateCapitalRecovery(e) {
 
   const CROutPut = document.querySelector('#CapitalRecovery');
   CROutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
-  console.log(C)
+ ;
 }
 
 calculateBtn.addEventListener('click', calculateCapitalRecovery);

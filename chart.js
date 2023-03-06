@@ -1,14 +1,15 @@
 const RS_Btn = document.getElementById('RS_calculateBtn');
 const currentPV = document.getElementById('PV');
-const retirementSum = document.getElementById('retirementSum');
+const retirementSum = document.getElementById('retirementSumValue');
 const chartCanvas = document.getElementById('myChart');
+let myChart;
 
 RS_Btn.addEventListener('click', function(e) {
   e.preventDefault();
-    
+
   const PVValue = Number(currentPV.value);
-  const retirementSumValue = Number(retirementSum.textContent.replace(/[^0-9.-]+/g,""));
-  
+  const retirementSumValue = retirementSum.textContent ? Number(retirementSum.textContent.match(/\d+/)[0]) : 0;
+  console.log('retirementSumValue:', retirementSumValue);
   const data = {
     labels: ['Current RSA balance', 'Retirement Sum'],
     datasets: [{
@@ -25,15 +26,29 @@ RS_Btn.addEventListener('click', function(e) {
       borderWidth: 1
     }]
   };
-        
-  const options = {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
+  
+  
+  const chartCtx = chartCanvas.getContext('2d');
+  
+  if (myChart) {
+    myChart.destroy();
+  }
+  
+  
+  myChart = new Chart(chartCtx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          ticks: {
+            beginAtZero: true,
+            suggestedMax: 10000000
+          }
         }
-      }]
+      }
     }
-  };
-
+    
+  });
+  
 });

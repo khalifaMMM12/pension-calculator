@@ -3,7 +3,7 @@
   
   function calculateRetirementSum(e) {
     e.preventDefault();
-    const n = Number(document.querySelector('#n').value);
+  const n = Number(document.querySelector('#n').value);
   const PV = Number(document.querySelector('#PV').value);
   const c = Number(document.querySelector('#c').value);
   const g = Number(document.querySelector('#g').value) / 100;
@@ -13,10 +13,54 @@
   
   const retirementSumOutput = document.querySelector('#retirementSumValue');
   retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString();
-}
+  
+
+  //Chart Workings here
+  let myChart;
+
+  const data = {
+    labels: ['Current RSA balance', 'Retirement Sum'],
+    datasets: [{
+      label: 'Amount in Naira',
+      data: [PV, FV],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)'
+      ],
+      borderWidth: 1
+    }]
+  };
+  
+  const chartCtx = chartCanvas.getContext('2d');
+  
+  if (myChart) {
+    myChart.destroy();
+  }
+  
+  myChart = new Chart(chartCtx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          ticks: {
+            beginAtZero: true,
+            suggestedMax: 10000000
+          }
+        }
+      }
+    }
+    
+  });
+  
+
+}//end of calculate retirement sum function
 
 calculateButton.addEventListener('click', calculateRetirementSum);
-
 
 // CAPITAL RECOVERY CALCULATOR
 const calculateBtn = document.querySelector('#CR_calculateBtn');
@@ -39,4 +83,3 @@ function calculateCapitalRecovery(e) {
 }
 
 calculateBtn.addEventListener('click', calculateCapitalRecovery);
-

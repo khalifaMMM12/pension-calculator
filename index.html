@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>pension Calculator</title>
 </head>
 <body>
@@ -18,103 +18,178 @@
         Pension Calculator
         </h3>
     </div>
+
 <div class="container-fluid pb-4">
 
     <div class="col">
-    <div class="row">
-        <!-- RETIREMENTSUM BEGINS -->
-        <div class="col-md-6">
+        <div class="row">
+            <!-- RETIREMENTSUM BEGINS -->
+            <div class="col-md-6">
 
-            <div class="card mt-4 ml-3">
+                <div class="card mt-4 ml-3">
+                    <div class="card-header bg-primary">
+                        <h3>Retirement Sum</h3>    
+                    </div>
+
+                    <div class="card-body"> 
+                        <!-- form begins -->
+                        <form>
+                            <div class="form-group row">
+                                <label for="">Current Age</label>
+                                <input type="number" class="form-control age-input ml-3" id="currentAge">
+                            </div>
+                            <div class="form-group row">
+                                <label for="">Retirement Age</label>
+                                <input type="number" class="form-control age-input ml-3" id="retirementAge">
+                                <small class="form-text form-muted">Retirement Age should not be less than Current Age</small>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="">How long do you expect to work?</label>
+                                <input type="number" class="form-control age-input ml-3" id="n">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">years</span>
+                                </div>
+                            </div>
+                            
+                            <!-- current rsa balance starts -->
+                            <div class="form-group row">
+                                <label for="">Current RSA balance</label>
+                                <input type="number" class="form-control age-input1 ml-3" id="PV">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">₦</span>
+                                </div>
+                                <small class="form-text form-muted">leave as zero if you are a prospective client</small>
+                            </div>
+                            <!-- current rsa balance ends -->
+                            
+                            <!-- monthly contribution begins -->
+                            <div class="form-group row">
+                                <label for="">Monthly Contribution</label>
+                                <input type="number" class="form-control age-input1 ml-3" id="c">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">₦</span>
+                                </div>
+                            </div>
+                            <!-- monthly contribution begins ends -->
+                            
+                            <!-- annual contribution growth rate -->
+                            <div class="form-group row">
+                                <label for="">Estimated Annual Contribution Growth Rate</label>
+                                <input type="number" class="form-control age-input2 ml-3" id="g">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                            <!-- annual contribution rate ends -->
+                            
+                            <!-- expected rate of return -->
+                            <div class="form-group row">
+                                <label for="">Expected Rate of Return</label>
+                                <input type="number" class="form-control age-input ml-3" id="r">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                            <!-- expected rate of return ends-->
+                            
+                            
+                            <!-- calculate button -->
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary" id="RS_calculateBtn">Calculate</button>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <div class="form-group py-4">
+                                    <h2 id="retirementSumValue"></h2>
+                                </div>
+                            </div>
+                            <!-- calculate button ends-->
+                        </form>
+                        <!-- form ends -->
+                    </div>
+                </div>
+            </div>
+                <!-- RETIREMENTSUM ENDS -->
+
+                <!-- CHART FOR RS -->
+                <div class="col-md-5 chart">
+                    <H3 class="pb-3">Chart on RSA balance and retirement Sum</H3>
+                        <canvas id="myChart"></canvas>
+                        <script src="chart.js"></script>
+                </div>
+        </div>
+    </div>
+    
+
+        <!-- CAPITAL RECOVERY STARTS -->
+
+        <div class="col-md-6">
+            <div class="card mt-4 ml-1">
                 <div class="card-header bg-primary">
-                    <h3>Retirement Sum</h3>    
+                    <h3>Capital Recovery</h3>
+                    <p>This calculator will help you decide how much you should contribute monthly to earn future income. Please complete the upper table first. </p>
                 </div>
 
-                <div class="card-body"> 
-                    <!-- form begins -->
-                    <form>
-                        <div class="form-group row">
-                            <label for="">Current Age</label>
-                            <input type="number" class="form-control age-input ml-3" id="currentAge">
+                <div class="card-body">
+                    <!-- FORM BEGINS -->
+                    <form id="CR_form">
+                        <div class="form-group row pb-2">
+                            <label for="">How Much Do You Want To Collect Monthly</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="pw">
+                            <small class="form-text form-muted">Recommend at least 50% of projected salary</small>
                         </div>
                         <div class="form-group row">
-                            <label for="">Retirement Age</label>
-                            <input type="number" class="form-control age-input ml-3" id="retirementAge">
-                            <small class="form-text form-muted">Retirement Age should not be less than Current Age</small>
+                            <label for="">Lump Sum at Retirement</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="L">
+                            <small class="form-text form-muted pl-3">limit to 20% of RSA balance</small>
                         </div>
                         
                         <div class="form-group row">
-                            <label for="">How long do you expect to work?</label>
-                            <input type="number" class="form-control age-input ml-3" id="n">
+                            <label for="">How many more years do you except to work?</label>
+                            <input type="number" class="form-control age-input ml-3" id="c_n">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">years</span>
                             </div>
                         </div>
                         
-                        <!-- current rsa balance starts -->
                         <div class="form-group row">
                             <label for="">Current RSA balance</label>
-                            <input type="number" class="form-control age-input1 ml-3" id="PV" id="currentRSA">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">₦</span>
-                            </div>
-                            <small class="form-text form-muted">leave as zero if you are a prospective client</small>
-                        </div>
-                        <!-- current rsa balance ends -->
-                        
-                        <!-- monthly contribution begins -->
-                        <div class="form-group row">
-                            <label for="">Monthly Contribution</label>
-                            <input type="number" class="form-control age-input1 ml-3" id="c">
+                            <input type="number" class="form-control age-input1 ml-3" id="pv">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">₦</span>
                             </div>
                         </div>
-                        <!-- monthly contribution begins ends -->
                         
-                        <!-- annual contribution growth rate -->
-                        <div class="form-group row">
-                            <label for="">Estimated Annual Contribution Growth Rate</label>
-                            <input type="number" class="form-control age-input2 ml-3" id="g">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">%</span>
-                            </div>
-                        </div>
-                        <!-- annual contribution rate ends -->
-                        
-                        <!-- expected rate of return -->
                         <div class="form-group row">
                             <label for="">Expected Rate of Return</label>
-                            <input type="number" class="form-control age-input ml-3" id="r">
+                            <input type="number" class="form-control age-input ml-3" id="c_r">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
-                        <!-- expected rate of return ends-->
                         
-                        
-                        <!-- calculate button -->
+                        <!-- CALCULATE BUTTON -->
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary" id="RS_calculateBtn">Calculate</button>
+                            <button type="submit" class="btn btn-primary" id="CR_calculateBtn">Calculate</button>
                         </div>
                         
                         <div class="card-footer">
-                            <div class="form-group py-4">
-                                <h2 id="retirementSum"></h2>
+                            <div class="form-group p-4">
+                                <h2 id="CapitalRecovery"></h2>
                             </div>
                         </div>
-                        <!-- calculate button ends-->
+                        <!-- CALCULATE BUTTON ENDS-->
                     </form>
-                    <!-- form ends -->
+                    <!-- FORM ENDS -->
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
-<canvas id="mychart"></canvas>
-
- <script src="script.js"></script>
- 
+   
+ <script src="script.js"></script>   
 </body>
 </html>

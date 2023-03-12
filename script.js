@@ -15,7 +15,8 @@
   retirementSumOutput.textContent = 'Your Retirement Sum is = ₦' + FV.toLocaleString();
   
 
-  //Chart Workings here
+  //RETIREMENT SUM CHART
+  const chartCanvas = document.getElementById('myChart');
   let myChart;
 
   const data = {
@@ -56,9 +57,10 @@
     }
     
   });
+  //END OF RETIREMENT SUM CHART
   
 
-}//end of calculate retirement sum function
+}
 
 calculateButton.addEventListener('click', calculateRetirementSum);
 
@@ -80,6 +82,50 @@ function calculateCapitalRecovery(e) {
   
   const CROutPut = document.querySelector('#CapitalRecovery');
   CROutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
+
+  // CAPITAL RECOVERY CHART
+  const chartCanvas = document.getElementById('CR_Chart');
+  let myChart;
+
+  const data = {
+    labels: ['Current RSA Balance', 'Capital Recovery'],
+    datasets: [{
+      label: 'Amount in Naira',
+      data: [pv, C],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)'
+      ],
+      borderWidth: 1
+    }]
+  };
+  
+  const chartCtx = chartCanvas.getContext('2d');
+  
+  if (myChart) {
+    myChart.destroy();
+  }
+  
+  myChart = new Chart(chartCtx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          ticks: {
+            beginAtZero: true,
+            suggestedMax: 10000000
+          }
+        }
+      }
+    }
+    
+  });
+  // CAPITAL RECOVERY CHART ENDED
 }
 
 calculateBtn.addEventListener('click', calculateCapitalRecovery);

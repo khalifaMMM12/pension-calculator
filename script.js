@@ -16,6 +16,7 @@
   
 
   //Chart Workings here
+  const chartCanvas = document.getElementById('myChart');
   let myChart;
 
   const data = {

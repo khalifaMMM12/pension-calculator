@@ -1,5 +1,6 @@
   // RETIREMENT SUM CALCULATOR
   const calculateButton = document.querySelector('#RS_calculateBtn');
+  let myChart = null;
   
   function calculateRetirementSum(e) {
     e.preventDefault();
@@ -17,7 +18,6 @@
 
   //Chart Workings here
   const chartCanvas = document.getElementById('myChart');
-  let myChart;
 
   const data = {
     labels: ['Current RSA balance', 'Retirement Sum'],
@@ -38,7 +38,7 @@
   
   const chartCtx = chartCanvas.getContext('2d');
   
-  if (myChart) {
+  if (myChart != null) {
     myChart.destroy();
   }
   
@@ -57,7 +57,6 @@
     }
     
   });
-  
 
 }//end of calculate retirement sum function
 

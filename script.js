@@ -76,44 +76,37 @@ function calculateCapitalRecovery(e) {
   const n = Number(document.querySelector('#c_n').value) * 12;
   const pv = Number(document.querySelector('#pv').value);
   const r = Number(document.querySelector('#c_r').value) / 100;
-  // const m = Number(document.querySelector('#M_C').value);
-  const y = Number(document.querySelector('#yearly').value);
-  const q = Number(document.querySelector('#querterly').value);
-  const mon = Number(document.querySelector('#monthly').value);
-  const d = Number(document.querySelector('#daily').value);
+  const m = Number(document.querySelector('#M_C').value);
+  // const y = Number(document.querySelector('#yearly').value);
+  // const q = Number(document.querySelector('#querterly').value);
+  // const mon = Number(document.querySelector('#monthly').value);
+  // const d = Number(document.querySelector('#daily').value);
   
   
-  const C = -1 * (pw * (Math.pow((1 + (r / 12)), (21 * 12)) - 1) - (pv * (r / 12) * ((1 + (r / 12)) ** n))
-  + ((l * (r / 12)) / (((1 + (r / 12)) ** n) - 1)));
+  const C_R =(-1 * (pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n - 1)); 
+
+  const F_G = (m + (C_R * -1));
   
-  const C_R =(pw * (Math.pow((1 + (r / 12)), (21 * 12)) - 1) - (pv * (r / 12) * ((1 + (r / 12)) ** n))
-  + ((l * (r / 12)) / (((1 + (r / 12)) ** n) - 1)));
-
-  const A = C_R * ((1 + (r / 12)) ** (12 * n)) - C_R;
-
-  const interest = (A - C_R);
-
   const CROutPut = document.querySelector('#CapitalRecovery');
-  CROutPut.textContent = 'Your Capital Recovery is = ₦' + C.toLocaleString();
+  CROutPut.textContent = 'Your Capital Recovery is = ₦' + C_R.toLocaleString();
   
-
-  const monthly_CR = document.querySelector("#Monthly_CR");
-  monthly_CR.textContent = 'Your Monthly Capital Recovery is = ₦' + interest.toLocaleString();
-
   const chartCanvas = document.getElementById('CR_Chart');
 
   const data = {
-    labels: ['Current RSA balance', 'Capital Recovery'],
+    labels: ['Current Monthly Contribution', 'Funding Gap', 'New Monthly Contribution'],
     datasets: [{
       label: 'Amount in Naira',
-      data: [pv, C],
+      data: [m, C_R, F_G],
       backgroundColor: [
         'rgba(147, 236, 147, 0.8)',
-        'rgba(255, 99, 132, 0.5)'
+        'rgba(255, 99, 132, 0.5)',
+        'rgb(44, 78, 137, 1)'
       ],
       borderColor: [
         'rgba(147, 236, 147, 1)',
-        'rgba(255, 99, 132, 1)'
+        'rgba(255, 99, 132, 1)',
+        'rgb(44, 78, 137, 1)'
+
       ],
       borderWidth: 1
     }]

@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>pension Calculator</title>
 </head>
@@ -26,7 +25,7 @@
             <div class="col-md-6">
 
                 <div class="card mt-4 ml-3">
-                    <div class="card-header bg-primary">
+                    <div class="card-header" style="background-color: #2e518e; color: white;">
                         <h3>Retirement Sum</h3>    
                     </div>
 
@@ -95,16 +94,16 @@
                             
                             <!-- calculate button -->
                             <div class="col-auto">
-                                <button type="submit" class="btn btn-primary" id="RS_calculateBtn">Calculate</button>
+                                <button type="submit" class="btn button" id="RS_calculateBtn">Calculate</button>
                             </div>
+                            <!-- calculate button ends-->
                             
                             <div class="card-footer">
                                 <div class="form-group py-4">
                                     <h2 id="retirementSumValue"></h2>
                                 </div>
                             </div>
-                            <!-- calculate button ends-->
-                        </form>
+                        </form> 
                         <!-- form ends -->
                     </div>
                 </div>
@@ -123,7 +122,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card mt-4 ml-1">
-                    <div class="card-header bg-primary">
+                    <div class="card-header" style="background-color: #2e518e; color: white;">
                         <h3>Capital Recovery</h3>
                         <p>This calculator will help you decide how much you should contribute monthly to earn future income. Please complete the upper table first. </p>
                     </div>
@@ -142,7 +141,7 @@
                         <div class="form-group row">
                             <label for="">Lump Sum at Retirement</label>
                             <input type="number" class="form-control age-input1 ml-3" id="L">
-                            <small class="form-text form-muted pl-3">limit to 20% of RSA balance</small>
+                            <small class="form-text form-muted pl-3">limit to 50% of RSA balance</small>
                         </div>
                                     
                         <div class="form-group row">
@@ -160,6 +159,14 @@
                                     <span class="input-group-text">₦</span>
                                 </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="">Current Monthly Contribution</label>
+                            <input type="number" class="form-control age-input1 ml-3" id="M_C">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">₦</span>
+                                </div>
+                        </div>
                                     
                         <div class="form-group row">
                             <label for="">Expected Rate of Return</label>
@@ -172,13 +179,30 @@
                         <!-- CALCULATE BUTTON -->
 
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary" id="CR_calculateBtn">Calculate</button>
+                            <button type="submit" class="btn button" id="CR_calculateBtn">Calculate</button>
                         </div>
                                     
                         <div class="card-footer">
                             <div class="form-group p-4">
                                 <h2 id="CapitalRecovery"></h2>
                             </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Recovery Plan
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item">yearly</a>
+                                  <a class="dropdown-item">quarterly</a>
+                                  <a class="dropdown-item">monthly</a>
+                                  <a class="dropdown-item">daily</a>
+                                </div>
+                            </div>
+                    
+                            <div class="">
+                                <h2 id="Monthly_CR"></h2>
+                            </div>
+
                         </div>
 
                         <!-- CALCULATE BUTTON ENDS-->
@@ -200,9 +224,7 @@
             
         </div>
     </div>
-    
-    
-    <script src="chart.js"></script>
     <script src="script.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

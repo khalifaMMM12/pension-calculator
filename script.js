@@ -80,15 +80,15 @@ function calculateCapitalRecovery(e) {
   
   const CR =(-1 * (pw * (1 - (1 + r / n) ** (-21 * n)) - (pv * (r / n) * (1 + r / n) ** (n)) + (l * r / n)) / ((1 + r / n) ** n - 1)); 
 
-  const CapitalRecovery = document.querySelector("#CapitalRecovery");
-  CapitalRecovery.textContent = 'Your Capital Recovery is = ₦' + CR.toLocaleString();
-
   const C_R =(-1 * (pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n - 1)); 
   
   const F_G = (m + (C_R * -1));
   
-  const dropdown = document.querySelector("#dropdown");
-  dropdown.style.display = "block";
+  // const dropdown = document.querySelector("#dropdown");
+  // dropdown.style.display = "block";
+
+  const CapitalRecovery = document.querySelector("#CapitalRecovery");
+  CapitalRecovery.textContent = 'Your Capital Recovery is = ₦' + CR.toLocaleString();
   
   const CROutPut = document.querySelector('#MonthlyCR');
   CROutPut.textContent = 'Your Monthly Capital Recovery is = ₦' + C_R.toLocaleString();

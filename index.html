@@ -183,28 +183,30 @@
                             <button type="submit" class="btn button" id="CR_calculateBtn">Calculate</button>
                         </div>
                                     
-                        <div class="card-footer">
-                            <div class="form-group p-4">
-                                <h2 id="CapitalRecovery"></h2>
-                            </div>
-
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Recovery Plan
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item">yearly</a>
-                                  <a class="dropdown-item">quarterly</a>
-                                  <a class="dropdown-item">monthly</a>
-                                  <a class="dropdown-item">daily</a>
+                         <div class="card-footer">
+                                <div class="form-group pb-2">
+                                    <h2 id="CapitalRecovery"></h2>
                                 </div>
-                            </div>
-                    
-                            <div class="">
-                                <h2 id="Monthly_CR"></h2>
-                            </div>
-
-                        </div>
+                                
+                                <div class="form-group pb-2"></div>
+                                    <h2 id="MonthlyCR"></h2>
+                                </div>
+                            
+                                <div class="dropdown pb-2" id="dropdown">
+                                    <button class="dropbtn">
+                                    Recovery Plan
+                                    </button>
+                                    <div class="dropdown-content">
+                                    <a class="">yearly</a>
+                                    <a class="">quarterly</a>
+                                    <a class="CR_monthly">monthly</a>
+                                    <a class="">daily</a>
+                                    </div>
+                                </div>
+                            
+                                <div class="pb-2">
+                                    <h2 id="FundingGap"></h2>
+                                </div>
 
                         <!-- CALCULATE BUTTON ENDS-->
                     </form>

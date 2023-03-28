@@ -45,7 +45,7 @@
                             
                             <div class="form-group row">
                                 <label for="">How long do you expect to work?</label>
-                                <input type="number" class="form-control age-input ml-3" id="n">
+                                <input type="number" class="form-control age-input ml-3" id="workYears">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">years</span>
                                 </div>
@@ -54,7 +54,7 @@
                             <!-- current rsa balance starts -->
                             <div class="form-group row">
                                 <label for="">Current RSA balance</label>
-                                <input type="number" class="form-control age-input1 ml-3" id="PV">
+                                <input type="number" class="form-control age-input1 ml-3" id="RSA_balance">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">₦</span>
                                 </div>
@@ -65,7 +65,7 @@
                             <!-- monthly contribution begins -->
                             <div class="form-group row">
                                 <label for="">Monthly Contribution</label>
-                                <input type="number" class="form-control age-input1 ml-3" id="c">
+                                <input type="number" class="form-control age-input1 ml-3" id="M_C">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">₦</span>
                                 </div>
@@ -75,7 +75,7 @@
                             <!-- annual contribution growth rate -->
                             <div class="form-group row">
                                 <label for="">Estimated Annual Contribution Growth Rate</label>
-                                <input type="number" class="form-control age-input2 ml-3" id="g">
+                                <input type="number" class="form-control age-input2 ml-3" id="A_C">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -85,7 +85,7 @@
                             <!-- expected rate of return -->
                             <div class="form-group row">
                                 <label for="">Expected Rate of Return</label>
-                                <input type="number" class="form-control age-input ml-3" id="r">
+                                <input type="number" class="form-control age-input ml-3" id="rate">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -141,7 +141,7 @@
 
                         <div class="form-group row">
                             <label for="">Lump Sum at Retirement</label>
-                            <input type="number" class="form-control age-input1 ml-3" id="L">
+                            <input type="number" class="form-control age-input1 ml-3" id="Lump">
                             <small class="form-text form-muted pl-3">limit to 50% of RSA balance</small>
                         </div>
                                     
@@ -155,7 +155,7 @@
                                     
                         <div class="form-group row">
                             <label for="">Current RSA balance</label>
-                            <input type="number" class="form-control age-input1 ml-3" id="pv">
+                            <input type="number" class="form-control age-input1 ml-3" id="RSA_balanceCR">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">₦</span>
                                 </div>
@@ -163,7 +163,7 @@
 
                         <div class="form-group row">
                             <label for="">Current Monthly Contribution</label>
-                            <input type="number" class="form-control age-input1 ml-3" id="M_C">
+                            <input type="number" class="form-control age-input1 ml-3" id="MC_CR">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">₦</span>
                                 </div>
@@ -171,7 +171,7 @@
                                     
                         <div class="form-group row">
                             <label for="">Expected Rate of Return</label>
-                            <input type="number" class="form-control age-input ml-3" id="c_r">
+                            <input type="number" class="form-control age-input ml-3" id="RoR">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -194,7 +194,7 @@
                                 <!-- </div> -->
                             
                                 <div class="dropdown pb-2" id="dropdown">
-                                    <button class="dropbtn">Recovery Plan</button>
+                                    <button class="dropbtn">Recovery Option</button>
                                     <div class="dropdown-content">
                                         <a id="MonthlyCR_BTN">monthly</a>
                                         <a id="quarterlyCR_BTN">quarterly</a>
@@ -229,7 +229,7 @@
 
 
             <!-- CHART FOR CAPITAL RECOVERY -->
-            <div class="col-md-6 chart">
+            <div class="col-md-5 chart">
                 <H3 class="pb-1">Chart On RSA Balance And Capital Recovery</H3>
                     <canvas id="CR_Chart"></canvas>
                 </div>
@@ -239,6 +239,5 @@
         </div>
     </div>
     <script src="script.js"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

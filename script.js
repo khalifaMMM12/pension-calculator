@@ -80,57 +80,74 @@ function calculateCapitalRecovery(e) {
   const r = Number(document.querySelector('#RoR').value) / 100;
   const m = Number(document.querySelector('#MC_CR').value);
   
-  const CR =(-1 * (pw * (1 - (1 + r / n) ** (-21 * n)) - (pv * (r / n) * (1 + r / n) ** (n)) + (l * r / n)) / ((1 + r / n) ** n - 1)); 
+  // const CR =(-1 * (pw * (1 - (1 + r / n) ** (-21 * n)) - (pv * (r / n) * (1 + r / n) ** (n)) + (l * r / n)) / ((1 + r / n) ** n - 1)); 
 
-  
+    // your monthly Capital recovery
+  const C_R =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n- 1)); 
+    
+      const monthlyCRoutput = document.querySelector('#MonthlyCR');
+      monthlyCRoutput.textContent = `Your current Monthly contribution is ${m.toLocaleString()} and you need to increase it by = ₦ ${C_R.toLocaleString()}`;
+
+      // your quarterly capital recovery
+  const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
+
+  const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
+  QuarterlyCRoutput.textContent = `You can close the funding gap by signing on to querterly contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
+
+    // your yearly capital recovery
+  const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 
+
+    const yearlyCRoutput = document.querySelector('#yearlyCR');
+    yearlyCRoutput.textContent = `You can also sign-on to the annual contribution = ₦ ${yearly_CR.toLocaleString()} paid every year`;
+
   // const F_G = (m + (C_R * -1));
   
-  const dropdown = document.querySelector("#dropdown");
-  dropdown.style.display = "block";
+  // const dropdown = document.querySelector("#dropdown");
+  // dropdown.style.display = "block";
   
-  const CapitalRecovery = document.querySelector("#CapitalRecovery");
-  CapitalRecovery.textContent = 'Your Capital Recovery is = ₦' + CR.toLocaleString();
+  // const CapitalRecovery = document.querySelector("#CapitalRecovery");
+  // CapitalRecovery.textContent = 'Your Capital Recovery is = ₦' + CR.toLocaleString();
   
   // DROP DOWN OPTIONS
   
   // monthly CAPITAL RECOVERY
-  const monthlyCR = document.querySelector('#MonthlyCR_BTN');
-  function calculatemonthlyCR(e){
-    e.preventDefault();
+//   const monthlyCR = document.querySelector('#MonthlyCR_BTN');
+//   function calculatemonthlyCR(e){
+//     e.preventDefault();
 
-    const C_R =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n- 1)); 
+//     const C_R =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n- 1)); 
     
-    const monthlyCRoutput = document.querySelector('#MonthlyCR');
-    monthlyCRoutput.textContent = `Your Monthly Capital Recovery was ${m.toLocaleString()} and Now = ₦ ${C_R.toLocaleString()}`;
-}
-monthlyCR.addEventListener('click', calculatemonthlyCR);
+//     const monthlyCRoutput = document.querySelector('#MonthlyCR');
+//     monthlyCRoutput.textContent = `Your Monthly Capital Recovery was ${m.toLocaleString()} and Now = ₦ ${C_R.toLocaleString()}`;
+// }
+// monthlyCR.addEventListener('click', calculatemonthlyCR);
 
-// monthly CAPITAL RECOVERY ENDS
+// // monthly CAPITAL RECOVERY ENDS
 
-// QUERTERLY CAPITAL RECOVERY
-const QuarterlyCR = document.querySelector('#quarterlyCR_BTN');
-function  calculatequarterlyCR(e){
-  e.preventDefault();
+// // QUERTERLY CAPITAL RECOVERY
+// const QuarterlyCR = document.querySelector('#quarterlyCR_BTN');
+// function  calculatequarterlyCR(e){
+//   e.preventDefault();
 
-  const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
+//   const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
 
-  const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
-  QuarterlyCRoutput.textContent = 'Your Quarterly Capital Recovery is = ₦' + Quarterly_CR.toLocaleString();
-}
-QuarterlyCR.addEventListener('click', calculatequarterlyCR);
-// QUERTERLY CAPITAL RECOVERY ENDS
+//   const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
+//   QuarterlyCRoutput.textContent = 'Your Quarterly Capital Recovery is = ₦' + Quarterly_CR.toLocaleString();
+// }
+// QuarterlyCR.addEventListener('click', calculatequarterlyCR);
+// // QUERTERLY CAPITAL RECOVERY ENDS
 
-// YEARLY CAPITAL RECOVERY
-const yearlyCR = document.querySelector('#yearlyCR_BTN');
-function calculateyearlyCR(e){
-  e.preventDefault();
+// // YEARLY CAPITAL RECOVERY
+// const yearlyCR = document.querySelector('#yearlyCR_BTN');
+// function calculateyearlyCR(e){
+//   e.preventDefault();
 
-  const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 
+//   const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 
 
-  const yearlyCRoutput = document.querySelector('#yearlyCR');
-  yearlyCRoutput.textContent = 'Your Yearly Capital Recovery is = ₦' + yearly_CR.toLocaleString();
-}
-yearlyCR.addEventListener('click', calculateyearlyCR);
+//   const yearlyCRoutput = document.querySelector('#yearlyCR');
+//   yearlyCRoutput.textContent = 'Your Yearly Capital Recovery is = ₦' + yearly_CR.toLocaleString();
+// }
+// yearlyCR.addEventListener('click', calculateyearlyCR);
 // YEARLY CAPITAL RECOVERY ENDS
 
 // DROP DOWN OPTIONS END

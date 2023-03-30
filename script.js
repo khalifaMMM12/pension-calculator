@@ -85,20 +85,20 @@ function calculateCapitalRecovery(e) {
     // your monthly Capital recovery
   const C_R =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n)) + (l * r / 12)) / ((1 + r / 12) ** n- 1)); 
     
-      const monthlyCRoutput = document.querySelector('#MonthlyCR');
-      monthlyCRoutput.textContent = `Your current Monthly contribution is ${m.toLocaleString()} and you need to increase it by = ₦ ${C_R.toLocaleString()}`;
+    const monthlyCRoutput = document.querySelector('#MonthlyCR');
+    monthlyCRoutput.textContent = `1.) Your current Monthly contribution is "₦${m.toLocaleString()}" and you need to increase it by = ₦ ${C_R.toLocaleString()}`;
 
       // your quarterly capital recovery
   const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
 
   const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
-  QuarterlyCRoutput.textContent = `You can close the funding gap by signing on to querterly contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
+  QuarterlyCRoutput.textContent = `2.) You can close the funding gap by signing on to the voluntery contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
 
     // your yearly capital recovery
   const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 
 
     const yearlyCRoutput = document.querySelector('#yearlyCR');
-    yearlyCRoutput.textContent = `You can also sign-on to the annual contribution = ₦ ${yearly_CR.toLocaleString()} paid every year`;
+    yearlyCRoutput.textContent = `3.) You can also sign-on to the voluntery contribution = ₦ ${yearly_CR.toLocaleString()} paid every year`;
 
   // const F_G = (m + (C_R * -1));
   
@@ -158,10 +158,10 @@ function calculateCapitalRecovery(e) {
   const chartCanvas = document.getElementById('CR_Chart');
 
   const data = {
-    labels: ['Current Monthly Contribution', 'New Monthly Contribution'],
+    labels: ['Current Monthly Contribution', 'Monthly contribution', 'quarterly contribution', 'annual contribution'],
     datasets: [{
       label: 'Amount in Naira',
-      data: [m, CR],
+      data: [m, C_R, Quarterly_CR, yearly_CR],
       backgroundColor: [
         'rgba(147, 236, 147, 0.8)',
         'rgba(255, 99, 132, 0.5)',

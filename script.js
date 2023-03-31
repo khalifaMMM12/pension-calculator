@@ -1,5 +1,5 @@
   // RETIREMENT SUM CALCULATOR
-  const calculateButton = document.querySelector('#RS_calculateBtn');
+  const calculateButton = document.querySelector("#RS_calculateBtn[type='submit']");
   let myChart = null;
   
   function calculateRetirementSum(e) {
@@ -60,7 +60,8 @@
 
 }
 //end of calculate retirement sum chart
-calculateButton.addEventListener('click', calculateRetirementSum);
+calculateButton.addEventListener('click',calculateRetirementSum);
+
 //END RETIREMENT SUM CALCULATOR
 
 
@@ -88,11 +89,17 @@ function calculateCapitalRecovery(e) {
     const monthlyCRoutput = document.querySelector('#MonthlyCR');
     monthlyCRoutput.textContent = `1.) Your current Monthly contribution is "₦${m.toLocaleString()}" and you need to increase it by = ₦ ${C_R.toLocaleString()}`;
 
+    const alternative = document.querySelector('#alt');
+    alternative.textContent = 'Alternatively';
+
       // your quarterly capital recovery
   const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
 
   const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
   QuarterlyCRoutput.textContent = `2.) You can close the funding gap by signing on to the voluntery contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
+
+    const or = document.querySelector('#or');
+    or.textContent = 'OR';
 
     // your yearly capital recovery
   const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 

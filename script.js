@@ -96,7 +96,7 @@ function calculateCapitalRecovery(e) {
   const Quarterly_CR =((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (Qn)) + (l * r / 12)) / ((1 + r / 12) ** Qn- 1)); 
 
   const QuarterlyCRoutput = document.querySelector('#quarterlyCR');
-  QuarterlyCRoutput.textContent = `2.) You can close the funding gap by signing on to the voluntery contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
+  QuarterlyCRoutput.textContent = `2.) You can close the funding gap by signing-on to the voluntary contribution of  = ₦  ${Quarterly_CR.toLocaleString()} paid quarterly`;
 
     const or = document.querySelector('#or');
     or.textContent = 'OR';
@@ -105,7 +105,7 @@ function calculateCapitalRecovery(e) {
   const yearly_CR = ((pw * (1 - (1 + r / 12) ** (-21 * 12)) - (pv * (r / 12) * (1 + r / 12) ** (n*1)) + (l * r / 12)) / ((1 + r / 12) ** Yn- 1)); 
 
     const yearlyCRoutput = document.querySelector('#yearlyCR');
-    yearlyCRoutput.textContent = `3.) You can also sign-on to the voluntery contribution = ₦ ${yearly_CR.toLocaleString()} paid every year`;
+    yearlyCRoutput.textContent = `3.) You can also sign-on to the voluntary contribution = ₦ ${yearly_CR.toLocaleString()} paid every year`;
 
   // const F_G = (m + (C_R * -1));
   
